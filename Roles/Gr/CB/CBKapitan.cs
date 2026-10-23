@@ -1,0 +1,44 @@
+﻿using Exiled.API.Features.Spawn;
+using Exiled.CustomRoles.API.Features;
+using PlayerRoles;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NanoRoles.Roles.Gr.CB
+{
+    public class CBKapitan : CustomRole
+    {
+        public override uint Id { get; set; } = 16;
+        public override int MaxHealth { get; set; } = 120;
+        public override string Name { get; set; } = "Капитан СБ";
+        public override string Description { get; set; } = "";
+        public override string CustomInfo { get; set; } = "Капитан СБ";
+        public override RoleTypeId Role { get; set; } = RoleTypeId.FacilityGuard;
+        public override SpawnProperties SpawnProperties { get; set; } = new SpawnProperties()
+        {
+            Limit = 1,
+            RoleSpawnPoints = new List<RoleSpawnPoint>()
+                {
+                    new RoleSpawnPoint()
+                    {
+                        Chance = 100,
+                        Role = RoleTypeId.FacilityGuard
+                    }
+                }
+        };
+        public override float SpawnChance { get; set; } = 15f;
+        public override List<string> Inventory { get; set; } = new List<string>()
+        {
+            ItemType.Medkit.ToString(),
+            "11",
+            ItemType.GunE11SR.ToString(),
+            ItemType.Ammo556x45.ToString(),
+            ItemType.Ammo556x45.ToString(),
+            ItemType.Radio.ToString(),
+            ItemType.ArmorHeavy.ToString()
+        };
+    }
+}
